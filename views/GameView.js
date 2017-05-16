@@ -9,13 +9,29 @@ GameView.prototype.constructor = GameView;
 
 GameView.prototype.init = function ()
 {
-    document.querySelector("#field1-irriguer").onsubmit = (function (e)
-    {
-        e.preventDefault();
+    var irrigateButton = document.querySelectorAll(".irriger");
+    var harvestButton = document.querySelector(".recolter");
 
-        this.emit("change-username", {
-            username: document.getElementById('username').value
-        });
+    irrigateButton.forEach(function (button)
+    {
+        button.onclick = (function (e)
+        {
+            e.preventDefault();
+
+            this.emit("irrigate", {
+                field: irrigateButton.id
+            });
+        }).bind(this);
+    }).bind(this);
+
+    harvestButton.forEach(function (button)
+    {
+        button.onclick = (function (e)
+        {
+            e.preventDefault();
+
+            this.emit("harvest", { field: harvestButton.id });
+        }).bind(this);
     }).bind(this);
 
     this.on("update-score", function (data)

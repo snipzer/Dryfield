@@ -48,7 +48,12 @@ Field.prototype.genHTML = function ()
     var irrigateButton = document.createElement("button");
     var waterLevel = document.createElement("p");
     var maturation = document.createElement("p");
-    var harvestButton  =document.createElement("button");
+    var harvestButton = document.createElement("button");
+
+    bigBox.id = "fields";
+    bigBox.className = "container-fluid";
+
+    smallBox.id = this.id;
 
     irrigateButton.id = this.id+"irriguer";
     waterLevel.id = this.id+"water_level";
