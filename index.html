@@ -1,10 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="style/styles.css" rel="stylesheet">
+
+    <title>DryField</title>
 </head>
+
 <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand">DryField</a>
+                <ul class="nav navbar-nav">
+                    <li><a href="#jeu">Jouer</a></li>
+                    <li><a href="#score">Scores</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <table id="stat">
+            <tr>
+                <td>récoltes</td>
+                <td>Litres</td>
+                <td>argent</td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div class="container-fluid" id="fields">
+        <div>
+            <button id="field0-irriguer">irriguer</button>
+            <p id="field0-water_level">0L</p>
+            <p id="field0-maturation">0</p>
+            <button id="field0-recolter">récolter</button>
+        </div>
+        <div>
+            <button id="field1-irriguer">irriguer</button>
+            <p id="field1-water_level">0L</p>
+            <p id="field1-maturation">0</p>
+            <button id="field1-recolter">récolter</button>
+        </div>
+        <div>
+            <button id="field2-irriguer">irriguer</button>
+            <p id="field2-water_level">0L</p>
+            <p id="field2-maturation">0</p>
+            <button id="field2-recolter">récolter</button>
+        </div>
+        <div>
+            <button id="acheter"><a href="#" data-width="500" data-rel="pop" class="poplight">Acheter de l'eau</a></button>
+        </div>
+        <div id="pop" class="popup_block">
+            <form>
+                <input type="number">
+                <button>Acheter</button>
+            </form>
+        </div>
+    </div>
+
+
 
 </body>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="tools/Pops.js"></script>
+
 </html>
