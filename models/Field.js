@@ -16,7 +16,7 @@ Field.prototype.setWaterLevel = function (number)
         return;
     this.waterLevel = number;
 
-    this.emit("update-water", {waterLevel: this.waterLevel});
+    this.emit("update-water", {id: this.id, waterLevel: this.waterLevel});
 };
 
 Field.prototype.setConsomation = function (number)
@@ -33,10 +33,33 @@ Field.prototype.setMaturation = function (number)
 
     this.maturation = number;
 
-    this.emit("update-maturation", {maturation: this.maturation});
+    this.emit("update-maturation", {id: this.id, maturation: this.maturation});
 };
 
 Field.prototype.setHarvestabled = function (bool)
 {
     this.harvestabled = bool;
+};
+
+Field.prototype.genHTML = function ()
+{
+    var bigBox = document.querySelector("#fields");
+    var smallBox = document.createElement("div");
+    var irrigateButton = document.createElement("button");
+    var waterLevel = document.createElement("p");
+    var maturation = document.createElement("p");
+    var harvestButton  =document.createElement("button");
+
+    irrigateButton.id = this.id+"irriguer";
+    waterLevel.id = this.id+"water_level";
+    maturation.id = this.id+"maturation";
+    harvestButton.id = this.id+"recolter";
+
+    smallBox.appendChild(irrigateButton);
+    smallBox.appendChild(waterLevel);
+    smallBox.appendChild(maturation);
+    smallBox.appendChild(harvestButton);
+
+    bigBox.appendChild(smallBox);
+
 };
