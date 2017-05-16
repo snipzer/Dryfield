@@ -13,7 +13,7 @@ GameController.prototype.init = function() {
 	}).bind(this));
 
 	this.view.on('harvest', (function() {
-		// si harvestabled true alors 
+		// si harvestabled true alors
 		if(harvestabled) {
 		// +1 en récolte (user)
 		this.user.setScore(this.user.score +1);
@@ -35,7 +35,7 @@ GameController.prototype.init = function() {
 		this.user.setWaterLevel(this.user.waterLevel + quantity)
 		}
 	}).bind(this));
-}
+};
 
 GameController.prototype.update = function() {
 	setInterval(function(){
@@ -45,4 +45,4 @@ GameController.prototype.update = function() {
 
 	// toute les secondes maturation de +5%
 
-}
+};
