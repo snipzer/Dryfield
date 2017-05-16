@@ -1,3 +1,30 @@
-/**
- * Created by snipzer on 16/05/17.
- */
+function User(){
+    EventEmitter.call(this);
+    this.money = 0;
+    this.waterLevel = 3;
+    this.score = 0;
+}
+
+User.prototype = Object.create(EventEmitter.prototype);
+User.prototype.constructor = User;
+
+User.prototype.setScore = function (number)
+{
+    this.score = number;
+    this.emit("update-score", {score: this.score});
+};
+
+User.prototype.setWaterLevel = function (number)
+{
+    if(number < 0)
+        return;
+    this.waterLevel = number;
+
+    this.emit("update-global-water", {waterLevel: this.waterLevel});
+};
+
+User.prototype.setMoney = function (number)
+{
+    this.money = number;
+    this.emit("update-money", {money: this.money});
+};
