@@ -88,5 +88,6 @@ GameView.prototype.init = function ()
     {
         document.querySelector('#arg').innerText = data.money;
         document.querySelector('#arg-modal').innerText = data.money;
+        document.querySelector('#buy').firstElementChild.max = data.money;
     });
 };

@@ -41,7 +41,6 @@ EventEmitter.prototype.off = function(eventName, fn) {
  * Lorsqu'un événement est émis, toutes les fonctions liées à celui-ci sont éxecutées
  */
 EventEmitter.prototype.emit = function(eventName, data) {
-  console.log('emit: ' + eventName, data);
   if (!this.events[eventName]) return
 
   this.events[eventName].forEach(function(fn) {

@@ -17,9 +17,9 @@ Field.prototype.build = function ()
 
 Field.prototype.setWaterLevel = function (number)
 {
-    if(number < 0 || this.harvestabled)
-        return;
     this.waterLevel = number;
+    if(number < 0)
+        this.waterLevel = 0;
 
     this.emit("update-water", {id: this.id, waterLevel: this.waterLevel});
 };
@@ -37,9 +37,6 @@ Field.prototype.setMaturation = function (number)
         return;
 
     this.maturation = number;
-
-    if(this.maturation === 100)
-        this.harvestabled = true;
 
     this.emit("update-maturation", {id: this.id, maturation: this.maturation});
 };

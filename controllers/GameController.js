@@ -10,40 +10,7 @@ function GameController(fields, user, view)
 
 GameController.prototype.init = function ()
 {
-    this.view.on('irrigate', (function (data)
-    {
-        var indexField = data.field.match(/\d/)[0];
 
-        if(this.user.waterLevel > 0 && !this.fields[indexField].harvestabled)
-        {
-            this.fields[indexField].setWaterLevel(this.fields[indexField].waterLevel + 1);
-            this.user.setWaterLevel(this.user.waterLevel - 1);
-        }
-
-
-
-    }).bind(this));
-
-    this.view.on('harvest', (function (data)
-    {
-        console.log('harvest');
-
-        var indexField = data.field.match(/\d/)[0];
-        // si harvestabled true alors
-        if (this.fields[indexField].harvestabled)
-        {
-            // +1 en récolte (user)
-            this.user.setScore(this.user.score + 1);
-            // user gagne 40$
-            this.user.setMoney(this.user.money + 40);
-            // set à false harvestabled
-            this.fields[indexField].setHarvestabled(false);
-            // set à 0 le setMaturation
-            this.fields[indexField].setMaturation(0);
-
-            this.fields[indexField].setConsomation(this.fields[indexField].consomation + 0.1);
-        }
-    }).bind(this));
 
     this.view.on('buy', (function (data)
     {
@@ -74,7 +41,11 @@ GameController.prototype.startGame = function() {
     {
         this.fields.forEach(function (field)
         {
-            if (field.waterLevel > 0)
+            if(field.maturation === 100)
+            {
+                //dfdf
+            }
+            else if (field.waterLevel > 0)
             {
                 // toute les secondes les fields perdent -1L
                 field.setWaterLevel(field.waterLevel - field.consomation);
@@ -86,6 +57,9 @@ GameController.prototype.startGame = function() {
             {
                 field.setMaturation(0);
             }
+
+
+
         }, this);
 
         if(this.fields[0].waterLevel === 0 && this.fields[1].waterLevel === 0 && this.fields[2].waterLevel === 0)
@@ -96,6 +70,46 @@ GameController.prototype.startGame = function() {
         }
 
     }).bind(this), 1000);
+
+    this.view.on('irrigate', (function (data)
+    {
+        var indexField = data.field.match(/\d/)[0];
+
+        // Si l'eau de l'utilisateur est inférieur a 0
+        // Et si le field n'est pas récoltable
+        if(this.user.waterLevel > 0 && !this.fields[indexField].harvestabled)
+        {
+            // Augmente d'un litre le champ
+            this.fields[indexField].setWaterLevel(this.fields[indexField].waterLevel + 1);
+            // Diminue d'un litre le joueur
+            this.user.setWaterLevel(this.user.waterLevel - 1);
+        }
+
+
+
+    }).bind(this));
+
+    this.view.on('harvest', (function (data)
+    {
+        var indexField = data.field.match(/\d/)[0];
+        // si harvestabled true alors
+        if(this.fields[indexField].maturation === 100)
+            this.fields[indexField].setHarvestabled(true);
+
+        if (this.fields[indexField].harvestabled)
+        {
+            // +1 en récolte (user)
+            this.user.setScore(this.user.score + 1);
+            // user gagne 40$
+            this.user.setMoney(this.user.money + 40);
+            // set à false harvestabled
+            this.fields[indexField].setHarvestabled(false);
+            // set à 0 le setMaturation
+            this.fields[indexField].setMaturation(0);
+
+            this.fields[indexField].setConsomation(this.fields[indexField].consomation + 0.1);
+        }
+    }).bind(this));
 };
 
 GameController.prototype.pauseGame = function() {
