@@ -11,6 +11,12 @@ GameView.prototype.init = function ()
 {
     var irrigateButtons = document.querySelectorAll(".irriguer");
     var harvestButtons = document.querySelectorAll(".recolter");
+    var startButton = document.querySelector("#start");
+
+    startButton.onclick = function ()
+    {
+        this.emit("start");
+    };
 
     irrigateButtons.forEach((function (button)
     {
