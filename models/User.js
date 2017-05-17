@@ -1,8 +1,5 @@
 function User(){
     EventEmitter.call(this);
-    this.money = 0;
-    this.waterLevel = 3;
-    this.score = 0;
 }
 
 User.prototype = Object.create(EventEmitter.prototype);
@@ -27,4 +24,11 @@ User.prototype.setMoney = function (number)
 {
     this.money = number;
     this.emit("update-money", {money: this.money});
+};
+
+User.prototype.build = function ()
+{
+    this.setWaterLevel(3);
+    this.setScore(0);
+    this.setMoney(50);
 };

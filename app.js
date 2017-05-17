@@ -4,4 +4,10 @@ window.onload = function() {
     var gameView = new GameView(fields, user);
 
     var gameController = new GameController(fields, user, gameView);
+
+    user.build();
+    fields.forEach(function (field)
+    {
+        field.build();
+    });
 };

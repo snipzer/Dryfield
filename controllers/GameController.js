@@ -30,15 +30,15 @@ GameController.prototype.init = function () {
         }
     }).bind(this));
 
-    this.view.on('buy', (function (quantity) {
-    	console.log('buy');
-
+    this.view.on('buy', (function (data) {
         // check si user à plus d'argent que la quantité qu'il demande
-        if (this.user.money >= quantity) {
+        if (this.user.money >= data.quantity) {
+            console.log("Quantité: "+data.quantity);
+            console.log("waterLevel: "+this.user.waterLevel);
             // user.setMoney argent actuel - quantity
-            this.user.setMoney(this.user.money - quantity);
+            this.user.setMoney(this.user.money - data.quantity);
             // user.setWaterlevel qté actuel + qty
-            this.user.setWaterLevel(this.user.waterLevel + quantity)
+            this.user.setWaterLevel(this.user.waterLevel + parseInt(data.quantity))
         }
     }).bind(this));
 };

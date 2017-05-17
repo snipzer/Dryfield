@@ -14,6 +14,14 @@ GameView.prototype.init = function ()
     var irrigateButtons = document.querySelectorAll(".irriguer");
     var harvestButtons = document.querySelectorAll(".recolter");
     var startButton = document.querySelector("#start");
+    var buyForm = document.querySelector("#buy");
+
+    buyForm.onsubmit = (function (e)
+    {
+        e.preventDefault();
+
+        this.emit("buy", {quantity: buyForm.firstElementChild.value});
+    }).bind(this);
 
     startButton.onclick = (function ()
     {
@@ -57,16 +65,16 @@ GameView.prototype.init = function ()
 
     this.user.on("update-score", function (data)
     {
-        document.querySelector('#recolte').innerText = data.score;
+        document.querySelector('#rec').innerText = data.score;
     });
 
     this.user.on("update-global-water", function (data)
     {
-        document.querySelector("#water").innerText = data.waterLevel;
+        document.querySelector("#lit").innerText = data.waterLevel;
     });
 
     this.user.on("update-money", function (data)
     {
-        document.querySelector('#money').innerText = data.money;
+        document.querySelector('#arg').innerText = data.money;
     });
 };

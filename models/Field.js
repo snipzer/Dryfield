@@ -2,14 +2,18 @@ function Field(id){
     EventEmitter.call(this);
     this.id = id;
     this.consomation = 1.0;
-    this.waterLevel = 3;
-    this.maturation = 0;
     this.harvestabled = false;
     this.genHTML();
 }
 
 Field.prototype = Object.create(EventEmitter.prototype);
 Field.prototype.constructor = Field;
+
+Field.prototype.build = function ()
+{
+    this.setWaterLevel(3);
+    this.setMaturation(0);
+};
 
 Field.prototype.setWaterLevel = function (number)
 {
