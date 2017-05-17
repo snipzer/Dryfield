@@ -10,9 +10,9 @@ GameView.prototype.constructor = GameView;
 GameView.prototype.init = function ()
 {
     var irrigateButton = document.querySelectorAll(".irriger");
-    var harvestButton = document.querySelector(".recolter");
+    var harvestButton = document.querySelectorAll(".recolter");
 
-    irrigateButton.forEach(function (button)
+    irrigateButton.forEach((function (button)
     {
         button.onclick = (function (e)
         {
@@ -22,9 +22,9 @@ GameView.prototype.init = function ()
                 field: irrigateButton.id
             });
         }).bind(this);
-    }).bind(this);
+    }).bind(this));
 
-    harvestButton.forEach(function (button)
+    harvestButton.forEach((function (button)
     {
         button.onclick = (function (e)
         {
@@ -32,7 +32,7 @@ GameView.prototype.init = function ()
 
             this.emit("harvest", { field: harvestButton.id });
         }).bind(this);
-    }).bind(this);
+    }).bind(this));
 
     this.on("update-score", function (data)
     {
