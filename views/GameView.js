@@ -15,6 +15,15 @@ GameView.prototype.init = function ()
     var harvestButtons = document.querySelectorAll(".recolter");
     var startButton = document.querySelector("#start");
     var buyForm = document.querySelector("#buy");
+    var buyButton = document.querySelector("#acheter");
+
+
+
+
+    buyButton.onclick = (function ()
+    {
+        this.emit("stop");
+    }).bind(this);
 
     buyForm.onsubmit = (function (e)
     {

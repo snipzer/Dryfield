@@ -38,6 +38,9 @@ Field.prototype.setMaturation = function (number)
 
     this.maturation = number;
 
+    if(this.maturation === 100)
+        this.harvestabled = true;
+
     this.emit("update-maturation", {id: this.id, maturation: this.maturation});
 };
 

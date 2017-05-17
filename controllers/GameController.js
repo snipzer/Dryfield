@@ -3,6 +3,7 @@ function GameController(fields, user, view)
     this.fields = fields;
     this.user = user;
     this.view = view;
+    this.start = this.startGame.bind(this);
 
     this.init();
 }
@@ -12,8 +13,12 @@ GameController.prototype.init = function ()
     this.view.on('irrigate', (function (data)
     {
         var indexField = data.field.match(/\d/)[0];
+
         this.fields[indexField].setWaterLevel(this.fields[indexField].waterLevel + 1);
-        this.user.setWaterLevel(this.user.waterLevel - 1);
+
+        if(!this.fields[indexField].harvestabled)
+            this.user.setWaterLevel(this.user.waterLevel - 1);
+
     }).bind(this));
 
     this.view.on('harvest', (function (data)
@@ -28,10 +33,10 @@ GameController.prototype.init = function ()
             this.user.setScore(this.user.score + 1);
             // user gagne 40$
             this.user.setMoney(this.user.money + 40);
-            // set à 0 le setMaturation
-            this.fields[indexField].setMaturation(0);
             // set à false harvestabled
             this.fields[indexField].setHarvestabled(false);
+            // set à 0 le setMaturation
+            this.fields[indexField].setMaturation(0);
         }
     }).bind(this));
 
@@ -45,20 +50,23 @@ GameController.prototype.init = function ()
             // user.setWaterlevel qté actuel + qty
             this.user.setWaterLevel(this.user.waterLevel + parseInt(data.quantity))
         }
+        else
+        {
+            alert("Achat impossible ! Vous n'avez pas assez d'argents");
+        }
     }).bind(this));
+
+    this.view.on("stop", this.pauseGame.bind(this));
 };
 
 GameController.prototype.update = function ()
 {
-    this.view.on('start', this.startGame.bind(this));
-
-
+    this.view.on('start', this.start);
 };
 
 GameController.prototype.startGame = function() {
 	this.interval = setInterval((function ()
     {
-        console.log("start");
         this.fields.forEach(function (field)
         {
             if (field.waterLevel > 0)
@@ -68,18 +76,21 @@ GameController.prototype.startGame = function() {
                 // toute les secondes maturation de +5%
                 field.setMaturation(field.maturation + 5);
             }
-            else 
-            {
-            	console.log(this);
-            	this.pauseGame();
-            }
         }, this);
+
+        if(this.fields[0].waterLevel === 0 && this.fields[1].waterLevel === 0 && this.fields[2].waterLevel === 0)
+        {
+            alert("Game over");
+            this.pauseGame();
+            this.view.off("start", this.start)
+        }
+
     }).bind(this), 1000);
-}
+};
 
 GameController.prototype.pauseGame = function() {
 	if (!this.interval) return;
 
 	clearInterval(this.interval);
-}
+};
 
