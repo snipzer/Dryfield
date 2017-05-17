@@ -1,9 +1,7 @@
 window.onload = function() {
-    var field0 = new Field("field0");
-    var field1 = new Field("field1");
-    var field2 = new Field("field2");
+    var fields = [new Field('field0'), new Field('field1'), new Field('field2')]
     var user = new User();
-    var gameView = new GameView();
+    var gameView = new GameView(fields, user);
 
-    var gameController = new GameController(field0, field1, field2, user, gameView);
-}
+    var gameController = new GameController(fields, user, gameView);
+};

@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand">DryField</a>
@@ -29,21 +29,29 @@
         </div>
     </div>
 
+    <div class="container">
+        <div>
+            <button id="start">GO</button>
+        </div>
+    </div>
 
     <div>
         <table id="stat">
             <tr>
-                <td>récoltes</td>
+                <td>Récoltes</td>
+                <td id="rec">0000</td>
                 <td>Litres</td>
-                <td>argent</td>
+                <td id="lit">0000</td>
+                <td>Argent</td>
+                <td id="arg">0000 $</td>
             </tr>
         </table>
     </div>
 
-    <div class="container-fluid" id="fields">
+    <div class="container" id="fields">
     </div>
-    <div>
-        <button id="acheter"><a href="#" data-width="500" data-rel="pop" class="poplight">Acheter de l'eau</a></button>
+    <div id="boutton">
+        <a href="#" data-width="500" data-rel="pop" class="poplight"><button id="acheter">Acheter de l'eau</button></a>
     </div>
     <div id="pop" class="popup_block">
         <form id="buy">
