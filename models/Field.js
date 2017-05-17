@@ -58,12 +58,14 @@ Field.prototype.genHTML = function ()
 
 
     irrigateButton.id = this.id+"-irriguer";
+    irrigateButton.className = "irriguer";
     irrigateButton.innerText = "irriguer";
     waterLevel.id = this.id+"-water_level";
     waterLevel.innerText = "OL";
     maturation.id = this.id+"-maturation";
     maturation.innerText = 0;
     harvestButton.id = this.id+"-recolter";
+    harvestButton.className = "recolter";
     harvestButton.innerText = "recolter";
 
     smallBox.appendChild(irrigateButton);
