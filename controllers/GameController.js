@@ -40,11 +40,17 @@ GameController.prototype.init = function () {
 };
 
 GameController.prototype.update = function () {
-    setInterval(function () {
+    this.view.on('start', setInterval(function () {
+        	this.fields.forEach(function(field) {
+        		if(field.waterLevel > 0){
+        			// toute les secondes les fields perdent -1L
+                    field.setWaterLevel(field.waterLevel - 1);
+                    // toute les secondes maturation de +5%
+                    field.setMaturation(field.maturation +5);
+                }
+        	})
+        }, 1000).bind(this)).bind(this);
 
-    }, 1000)
-    // toute les secondes les fields perdent -1L
-
-    // toute les secondes maturation de +5%
 
 };
+
