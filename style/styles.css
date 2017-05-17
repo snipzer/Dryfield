@@ -24,6 +24,20 @@ a:focus {
     text-align: center;
 }
 
+#field0 {
+    float: left;
+    padding-right: 50px;
+}
+
+#field1 {
+    float: left;
+    padding-right: 50px;
+}
+
+#field2 {
+    float: left;
+}
+
 #fields {
     width: 330px;
     height: 85px;

@@ -18,7 +18,6 @@ GameView.prototype.init = function ()
         {
             e.preventDefault();
 
-            console.log("toto");
             this.emit("irrigate", {
                 field: button.id
             });
