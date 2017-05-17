@@ -5,6 +5,7 @@ function Field(id){
     this.waterLevel = 3;
     this.maturation = 0;
     this.harvestabled = false;
+    this.genHTML();
 }
 
 Field.prototype = Object.create(EventEmitter.prototype);
@@ -55,10 +56,15 @@ Field.prototype.genHTML = function ()
 
     smallBox.id = this.id;
 
+
     irrigateButton.id = this.id+"irriguer";
+    irrigateButton.innerText = "irriguer";
     waterLevel.id = this.id+"water_level";
+    waterLevel.innerText = "OL";
     maturation.id = this.id+"maturation";
+    maturation.innerText = 0;
     harvestButton.id = this.id+"recolter";
+    harvestButton.innerText = "recolter";
 
     smallBox.appendChild(irrigateButton);
     smallBox.appendChild(waterLevel);
