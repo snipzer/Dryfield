@@ -10,4 +10,6 @@ window.onload = function() {
     {
         field.build();
     });
+
+    gameController.update();
 };
