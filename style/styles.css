@@ -20,16 +20,6 @@ a:focus {
     margin-top: 100px;
 }
 
-#stat {
-    margin: auto;
-    margin-top: 55px;
-    width: 330px;
-    height: 85px;
-    border: 2px solid black;
-    color: black;
-    text-align: center;
-}
-
 #field0 {
     float: left;
     padding-right: 50px;
@@ -131,7 +121,31 @@ a:focus {
     border-color: black;
 }
 
+#stat2 {
+    background-color: #00664A;
+    color: #62FFD5;
+    font-weight: bold;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    width: 75%;
+    border-color: black;
+}
+
+#buy {
+    margin-left: 232px;
+}
+
 #stat tr td {
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 10px 10px 0 0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#stat2 tr td {
     padding: 5px;
     border: 1px solid black;
     border-radius: 10px 10px 0 0;

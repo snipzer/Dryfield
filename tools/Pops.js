@@ -4,10 +4,12 @@
      $('a.poplight').on('click', function() {
          var popID = $(this).data('rel'); //Trouver la pop-up correspondante
          var popWidth = $(this).data('width'); //Trouver la largeur
+         var popHeight = $(this).data('height');
 
          //Faire apparaitre la pop-up et ajouter le bouton de fermeture
          $('#' + popID).fadeIn().css({
-             'width': popWidth
+             'width': popWidth,
+             'height': popHeight
          }).prepend('<a href="#" class="close"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>');
 
          //Récupération du margin, qui permettra de centrer la fenêtre - on ajuste de 80px en conformité avec le CSS
