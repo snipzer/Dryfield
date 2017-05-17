@@ -57,7 +57,7 @@ GameView.prototype.init = function ()
 
     this.on("update-water", function (data)
     {
-        document.querySelector('#'+data.id+"water_level").innerText = data.score;
+        document.querySelector('#'+data.id+"water_level").innerText = data.waterLevel;
     });
 
     this.on("update-maturation", function (data)
