@@ -9,11 +9,13 @@ function GameController(field0, field1, field2, user, view) {
 GameController.prototype.init = function () {
     this.view.on('irrigate', (function (data) {
     	var indexField = data.field.match(/\d/)[0];
-        this.fields[indexField].setWaterLevel(this.field.waterLevel + 1);
+        this.fields[indexField].setWaterLevel(this.fields[indexField].waterLevel + 1);
         this.user.setWaterLevel(this.user.waterLevel - 1);
     }).bind(this));
 
     this.view.on('harvest', (function (data) {
+    	console.log('harvest');
+
     	var indexField = data.field.match(/\d/)[0];
         // si harvestabled true alors
         if (harvestabled) {
@@ -29,6 +31,8 @@ GameController.prototype.init = function () {
     }).bind(this));
 
     this.view.on('buy', (function (quantity) {
+    	console.log('buy');
+
         // check si user à plus d'argent que la quantité qu'il demande
         if (this.user.money >= quantity) {
             // user.setMoney argent actuel - quantity
