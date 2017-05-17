@@ -68,8 +68,13 @@ GameController.prototype.startGame = function() {
                 // toute les secondes maturation de +5%
                 field.setMaturation(field.maturation + 5);
             }
-        })
-    }).bind(this), 1000)
+            else 
+            {
+            	console.log(this);
+            	this.pauseGame();
+            }
+        }, this);
+    }).bind(this), 1000);
 }
 
 GameController.prototype.pauseGame = function() {
@@ -77,3 +82,4 @@ GameController.prototype.pauseGame = function() {
 
 	clearInterval(this.interval);
 }
+
