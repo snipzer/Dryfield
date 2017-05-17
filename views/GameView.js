@@ -13,10 +13,10 @@ GameView.prototype.init = function ()
     var harvestButtons = document.querySelectorAll(".recolter");
     var startButton = document.querySelector("#start");
 
-    startButton.onclick = function ()
+    startButton.onclick = (function ()
     {
         this.emit("start");
-    };
+    }).bind(this);
 
     irrigateButtons.forEach((function (button)
     {
