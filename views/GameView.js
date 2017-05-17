@@ -1,6 +1,8 @@
-function GameView()
+function GameView(fields, user)
 {
     EventEmitter.call(this);
+    this.fields = fields;
+    this.user = user;
     this.init();
 }
 
@@ -40,28 +42,31 @@ GameView.prototype.init = function ()
         }).bind(this);
     }).bind(this));
 
-    this.on("update-score", function (data)
+    this.fields.forEach(function (field)
+    {
+        field.on("update-water", function (data)
+        {
+            document.querySelector('#'+data.id+"-water_level").innerText = data.waterLevel;
+        });
+
+        field.on("update-maturation", function (data)
+        {
+            document.querySelector("#"+data.id+"-maturation").innerText = data.maturation;
+        });
+    });
+
+    this.user.on("update-score", function (data)
     {
         document.querySelector('#recolte').innerText = data.score;
     });
 
-    this.on("update-global-water", function (data)
+    this.user.on("update-global-water", function (data)
     {
         document.querySelector("#water").innerText = data.waterLevel;
     });
 
-    this.on("update-money", function (data)
+    this.user.on("update-money", function (data)
     {
         document.querySelector('#money').innerText = data.money;
-    });
-
-    this.on("update-water", function (data)
-    {
-        document.querySelector('#'+data.id+"-water_level").innerText = data.waterLevel;
-    });
-
-    this.on("update-maturation", function (data)
-    {
-        document.querySelector("#"+data.id+"-maturation").innerText = data.maturation;
     });
 };

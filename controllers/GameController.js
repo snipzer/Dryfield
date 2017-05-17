@@ -1,5 +1,5 @@
-function GameController(field0, field1, field2, user, view) {
-    this.fields = [field0, field1, field2];
+function GameController(fields, user, view) {
+    this.fields = fields;
     this.user = user;
     this.view = view;
 
