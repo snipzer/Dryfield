@@ -57,11 +57,11 @@ GameView.prototype.init = function ()
 
     this.on("update-water", function (data)
     {
-        document.querySelector('#'+data.id+"water_level").innerText = data.waterLevel;
+        document.querySelector('#'+data.id+"-water_level").innerText = data.waterLevel;
     });
 
     this.on("update-maturation", function (data)
     {
-        document.querySelector("#"+data.id+"maturation").innerText = data.maturation;
+        document.querySelector("#"+data.id+"-maturation").innerText = data.maturation;
     });
 };
