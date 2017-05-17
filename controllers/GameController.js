@@ -7,12 +7,14 @@ function GameController(field0, field1, field2, user, view) {
 }
 
 GameController.prototype.init = function () {
-    this.view.on('irrigate', (function () {
-        this.field.setWaterLevel(this.field.waterLevel + 1);
+    this.view.on('irrigate', (function (data) {
+    	var indexField = data.field.match(/\d/)[0];
+        this.fields[indexField].setWaterLevel(this.field.waterLevel + 1);
         this.user.setWaterLevel(this.user.waterLevel - 1);
     }).bind(this));
 
-    this.view.on('harvest', (function () {
+    this.view.on('harvest', (function (data) {
+    	var indexField = data.field.match(/\d/)[0];
         // si harvestabled true alors
         if (harvestabled) {
             // +1 en récolte (user)
@@ -20,9 +22,9 @@ GameController.prototype.init = function () {
             // user gagne 40$
             this.user.setMoney(this.user.money + 40);
             // set à 0 le setMaturation
-            this.field.setMaturation(0);
+            this.fields[indexField].setMaturation(0);
             // set à false harvestabled
-            this.field.setHaverstabled(false);
+            this.fields[indexField].setHarvestabled(false);
         }
     }).bind(this));
 
