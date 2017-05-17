@@ -8,7 +8,7 @@
          //Faire apparaitre la pop-up et ajouter le bouton de fermeture
          $('#' + popID).fadeIn().css({
              'width': popWidth
-         }).prepend('<a href="#" class="close"><img src="close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>');
+         }).prepend('<a href="#" class="close"><img src="style/close.png" class="fa-times-circle-o" title="Close Window" alt="Close" /></a>');
 
          //Récupération du margin, qui permettra de centrer la fenêtre - on ajuste de 80px en conformité avec le CSS
          var popMargTop = ($('#' + popID).height() + 80) / 2;
@@ -38,6 +38,5 @@
 
          return false;
      });
-
 
  });
