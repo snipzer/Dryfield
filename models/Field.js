@@ -26,7 +26,7 @@ Field.prototype.setWaterLevel = function (number)
 
 Field.prototype.setConsomation = function (number)
 {
-    if((number >= 3 && number <= 1) || this.harvestabled)
+    if((number > 2 && number <= 1) || this.harvestabled)
         return;
     this.consomation = number;
 };

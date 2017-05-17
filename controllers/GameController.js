@@ -14,7 +14,9 @@ GameController.prototype.init = function ()
     {
         var indexField = data.field.match(/\d/)[0];
 
-        this.fields[indexField].setWaterLevel(this.fields[indexField].waterLevel + 1);
+        if(this.user.waterLevel > 0)
+            this.fields[indexField].setWaterLevel(this.fields[indexField].waterLevel + 1);
+
 
         if(!this.fields[indexField].harvestabled)
             this.user.setWaterLevel(this.user.waterLevel - 1);
@@ -37,6 +39,8 @@ GameController.prototype.init = function ()
             this.fields[indexField].setHarvestabled(false);
             // set à 0 le setMaturation
             this.fields[indexField].setMaturation(0);
+
+            this.fields[indexField].setConsomation(this.fields[indexField].consomation + 0.1);
         }
     }).bind(this));
 
@@ -72,7 +76,7 @@ GameController.prototype.startGame = function() {
             if (field.waterLevel > 0)
             {
                 // toute les secondes les fields perdent -1L
-                field.setWaterLevel(field.waterLevel - 1);
+                field.setWaterLevel(field.waterLevel - field.consomation);
                 // toute les secondes maturation de +5%
                 field.setMaturation(field.maturation + 5);
             }
