@@ -17,16 +17,7 @@ a:focus {
 #start {
     width: 35px;
     margin-left: 550px;
-}
-
-#stat {
-    margin: auto;
-    margin-top: 55px;
-    width: 330px;
-    height: 85px;
-    border: 2px solid black;
-    color: black;
-    text-align: center;
+    margin-top: 100px;
 }
 
 #field0 {
@@ -98,6 +89,103 @@ a:focus {
     width: 115px;
     height: 195px;
     margin-left: 610px;
+}
+
+#oui {
+    margin-top: 500px;
+}
+
+#prog {
+    width: 100px;
+}
+
+.container-tab {
+    background-color: #00664A;
+    border-radius: 50px;
+    width: 60%;
+    padding-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    height: 70%;
+}
+
+#stat {
+    background-color: #00664A;
+    color: #62FFD5;
+    font-weight: bold;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border-color: black;
+}
+
+#stat2 {
+    background-color: #00664A;
+    color: #62FFD5;
+    font-weight: bold;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    width: 75%;
+    border-color: black;
+}
+
+#buy {
+    margin-left: 232px;
+}
+
+#stat tr td {
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 10px 10px 0 0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#stat2 tr td {
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 10px 10px 0 0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#scoretab {
+    background-color: #00664A;
+    color: #62FFD5;
+    font-weight: bold;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 50%;
+}
+
+#scoretab tr td {
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 10px 10px 0 0;
+    text-decoration: none;
+}
+
+#score,
+h3 {
+    color: #62FFD5;
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 50px;
+}
+
+.copyright {
+    margin-top: 450px;
+    text-align: center;
+}
+
+.br {
+    padding: 45px;
 }
 
 #fade {
