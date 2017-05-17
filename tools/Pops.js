@@ -40,3 +40,30 @@
      });
 
  });
+
+ $(function() {
+     $('header a').on('click', function(e) {
+         e.preventDefault();
+         var hash = this.hash;
+         $('html, body').animate({
+             scrollTop: $(this.hash).offset().top
+         }, 1000, function() {
+             window.location.hash = hash;
+         });
+     });
+ });
+
+ function timer(n) {
+     $(".progress-bar").css("width", n + "%");
+     $("#pourcentage").text(n + "%");
+     if (n < 100) {
+         setTimeout(function() {
+             timer(n + 10);
+         }, 200);
+     }
+ }
+ $(function() {
+     $("#animer").click(function() {
+         timer(0);
+     });
+ });
