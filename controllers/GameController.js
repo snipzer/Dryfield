@@ -50,7 +50,13 @@ GameController.prototype.init = function ()
 
 GameController.prototype.update = function ()
 {
-    this.view.on('start', setInterval(function ()
+    this.view.on('start', this.startGame.bind(this));
+
+
+};
+
+GameController.prototype.startGame = function() {
+	this.interval = setInterval((function ()
     {
         console.log("start");
         this.fields.forEach(function (field)
@@ -63,8 +69,11 @@ GameController.prototype.update = function ()
                 field.setMaturation(field.maturation + 5);
             }
         })
-    }, 1000).bind(this)).bind(this);
+    }).bind(this), 1000)
+}
 
+GameController.prototype.pauseGame = function() {
+	if (!this.interval) return;
 
-};
-
+	clearInterval(this.interval);
+}
