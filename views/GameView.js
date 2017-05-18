@@ -29,7 +29,7 @@ GameView.prototype.init = function ()
     {
         e.preventDefault();
 
-        this.emit("buy", {quantity: buyForm.firstElementChild.value});
+        this.emit("buy", { quantity: buyForm.firstElementChild.value });
     }).bind(this);
 
     startButton.onclick = (function ()
@@ -43,9 +43,8 @@ GameView.prototype.init = function ()
         {
             e.preventDefault();
 
-            this.emit("irrigate", {
-                field: button.id
-            });
+            console.log(button.id+' send irrigate !');
+            this.emit("irrigate", { field: button.id });
         }).bind(this);
     }).bind(this));
 

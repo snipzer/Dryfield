@@ -11,17 +11,18 @@ Field.prototype.constructor = Field;
 
 Field.prototype.build = function ()
 {
-    this.setWaterLevel(3);
+    this.setWaterLevel(50);
     this.setMaturation(0);
 };
 
 Field.prototype.setWaterLevel = function (number)
 {
-    this.waterLevel = number;
+    this.waterLevel = Math.round(number);
     if(number < 0)
         this.waterLevel = 0;
 
     this.emit("update-water", {id: this.id, waterLevel: this.waterLevel});
+    console.log(this.id+" waterLevel = "+this.waterLevel)
 };
 
 Field.prototype.setConsomation = function (number)

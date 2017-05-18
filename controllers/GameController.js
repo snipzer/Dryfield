@@ -39,6 +39,7 @@ GameController.prototype.update = function ()
 GameController.prototype.startGame = function() {
 	this.interval = setInterval((function ()
     {
+        console.log("Debut interval");
         this.fields.forEach(function (field)
         {
             if(field.maturation === 100)
@@ -69,6 +70,7 @@ GameController.prototype.startGame = function() {
             this.view.off("start", this.start)
         }
 
+        console.log("Fin interval");
     }).bind(this), 1000);
 
     this.view.on('irrigate', (function (data)
