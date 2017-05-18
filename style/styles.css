@@ -1,11 +1,11 @@
 html {
-    height: 100%;
 }
 
 body {
-    background-color: #4A9579;
+    background-image: url('champsDAMOUR.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
     font-family: 'Roboto', sans-serif;
-    height: 100%;
 }
 
 a,
