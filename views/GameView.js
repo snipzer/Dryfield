@@ -18,8 +18,6 @@ GameView.prototype.init = function ()
     var buyButton = document.querySelector("#acheter");
 
 
-
-
     buyButton.onclick = (function ()
     {
         this.emit("stop");
@@ -30,7 +28,10 @@ GameView.prototype.init = function ()
         e.preventDefault();
 
         this.emit("buy", { quantity: buyForm.firstElementChild.value });
-        $(".popup_block").modal("hide");
+        this.emit("start");
+
+        $(".popup_block").css("display", "none");
+        $("#fade").css("display", "none");
     }).bind(this);
 
     startButton.onclick = (function ()
