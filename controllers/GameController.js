@@ -56,7 +56,7 @@ GameController.prototype.bindEvents = function() {
 
     this.view.on('buy', (function (data)
     {
-        if(!this.interval) return;
+        //if(!this.interval) return;
 
         // check si user à plus d'argent que la quantité qu'il demande
         if (this.user.money >= data.quantity)
