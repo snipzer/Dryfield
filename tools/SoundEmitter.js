@@ -1,4 +1,5 @@
-function SoundEmitter() {
+function SoundEmitter()
+{
     EventEmitter.call(this);
     this.sounds = {}
 }
@@ -6,7 +7,7 @@ function SoundEmitter() {
 SoundEmitter.prototype = Object.create(EventEmitter.prototype);
 SoundEmitter.prototype.constructor = SoundEmitter;
 
-SoundEmitter.prototype.addSound = function(eventName, sound)
+SoundEmitter.prototype.addSound = function (eventName, sound)
 {
 
     // On ajoute l'événement à l'objet
@@ -17,7 +18,7 @@ SoundEmitter.prototype.addSound = function(eventName, sound)
 };
 
 
-SoundEmitter.prototype.removeSound = function(eventName, sound)
+SoundEmitter.prototype.removeSound = function (eventName, sound)
 {
     // On vérifie l'existence de l'événement
     if (!this.sounds[eventName]) return;
@@ -36,26 +37,16 @@ SoundEmitter.prototype.removeSound = function(eventName, sound)
 };
 
 
-SoundEmitter.prototype.emit = function(eventName, data)
+SoundEmitter.prototype.emit = function (eventName, data)
 {
-    if (!this.events[eventName] && !this.sounds[eventName]) return;
+    EventEmitter.prototype.emit.call(this, eventName, data);
 
-    if(this.events[eventName])
+    if(!this.sounds[eventName]) return;
+
+    this.sounds[eventName].forEach(function (sound)
     {
-        this.events[eventName].forEach(function(fn)
-        {
-            fn(data)
-        });
+        var audio = new Audio(sound);
+        audio.play()
+    });
 
-    }
-
-    if(this.sounds[eventName])
-    {
-        this.sounds[eventName].forEach(function(sound)
-        {
-            var audio = new Audio(sound);
-            audio.play()
-        });
-
-    }
 };
