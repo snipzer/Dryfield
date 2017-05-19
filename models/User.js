@@ -28,7 +28,7 @@ User.prototype.setMoney = function (number)
 
 User.prototype.build = function ()
 {
-    this.setWaterLevel(500);
+    this.setWaterLevel(3);
     this.setScore(0);
-    this.setMoney(500);
+    this.setMoney(50);
 };

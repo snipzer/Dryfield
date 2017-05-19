@@ -19,8 +19,6 @@ window.onload = function() {
         dataType: 'json',
         success: function(json, status)
         {
-
-            console.log(json.list);
             var str = '<h3>Scores :</h3><table border="2" cellpadding=5px" cellspacing="5px" id="scoretab"><th>Pseudo</th><th>Score</th>';
 
             for(var i = 0; i < json.list.length; i++)
@@ -34,7 +32,8 @@ window.onload = function() {
         },
         error: function(result, status, error)
         {
-            console.log(result);
+            var str = '<p style="color:red; font-weight: bold">Erreur lors du chargement des scores</p>';
+            $("#score-container").html(str);
         }
     });
 };

@@ -61,9 +61,27 @@ GameController.prototype.startGame = function() {
 
         if(this.fields[0].waterLevel === 0 && this.fields[1].waterLevel === 0 && this.fields[2].waterLevel === 0)
         {
-            alert("Game over");
+
+            var playerName = prompt("Game Over ! \nPlease enter your name");
+            var score = this.user.score;
             this.pauseGame();
-            this.view.off("start", this.start)
+            this.view.off("start", this.start);
+
+            $.ajax({
+                url: 'http://10.1.108.8:3000/scores',
+                type: 'POST',
+                data: {name: playerName, score: score},
+                dataType: 'json',
+                success: function(json, status)
+                {
+                    location.reload();
+                },
+                error: function(result, status, error)
+                {
+                    // var str = '<p style="color:red; font-weight: bold">Erreur lors de l'envois des scores</p>';
+                    // $("#score-container").html(str);
+                }
+            });
         }
 
 

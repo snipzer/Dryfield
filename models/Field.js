@@ -11,7 +11,7 @@ Field.prototype.constructor = Field;
 
 Field.prototype.build = function ()
 {
-    this.setWaterLevel(50);
+    this.setWaterLevel(3);
     this.setMaturation(0);
 };
 
