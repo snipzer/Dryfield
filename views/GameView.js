@@ -30,6 +30,7 @@ GameView.prototype.init = function ()
         e.preventDefault();
 
         this.emit("buy", { quantity: buyForm.firstElementChild.value });
+        $(".popup_block").modal("hide");
     }).bind(this);
 
     startButton.onclick = (function ()
@@ -43,7 +44,6 @@ GameView.prototype.init = function ()
         {
             e.preventDefault();
 
-            console.log(button.id+' send irrigate !');
             this.emit("irrigate", { field: button.id });
         }).bind(this);
     }).bind(this));
@@ -67,7 +67,7 @@ GameView.prototype.init = function ()
 
         field.on("update-maturation", function (data)
         {
-            document.querySelector("#"+data.id+"-maturation").innerText = data.maturation;
+            document.querySelector("#"+data.id+"-maturation").innerText = data.maturation+"%";
             document.querySelector("#"+data.id+"-maturation").setAttribute("value", data.maturation);
         });
     });

@@ -6,12 +6,7 @@ window.onload = function() {
     var gameController = new GameController(fields, user, gameView);
 
     user.build();
-    fields.forEach(function (field)
-    {
-        field.build();
-    });
-
-    gameController.update();
+    fields.forEach(function (field) { field.build() });
 
     $.ajax({
         url: 'http://10.1.108.8:3000/scores',

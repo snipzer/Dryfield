@@ -21,6 +21,7 @@ Field.prototype.setWaterLevel = function (number)
     if(number < 0)
         this.waterLevel = 0;
 
+    console.log(this.id+" waterlevel = "+this.waterLevel);
     this.emit("update-water", {id: this.id, waterLevel: this.waterLevel});
 };
 
@@ -69,7 +70,7 @@ Field.prototype.genHTML = function ()
     waterLevel.innerText = "OL";
 
     maturation.id = this.id+"-maturation";
-    maturation.innerText = "10%";
+    maturation.innerText = this.maturation;
     maturation.max = 100;
     maturation.setAttribute("value", this.maturation);
 
