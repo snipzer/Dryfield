@@ -1,5 +1,6 @@
 function GameController(fields, user, view)
 {
+    SoundEmitter.call(this);
     this.fields = fields;
     this.user = user;
     this.view = view;
@@ -7,6 +8,9 @@ function GameController(fields, user, view)
 
     this.bindEvents();
 }
+
+GameController.prototype = Object.create(SoundEmitter.prototype);
+GameController.prototype.constructor = GameController;
 
 GameController.prototype.bindEvents = function() {
     this.view.on('start', this.start);
@@ -98,10 +102,13 @@ GameController.prototype.startGame = function()
         if(this.fields[0].waterLevel === 0 && this.fields[1].waterLevel === 0 && this.fields[2].waterLevel === 0)
         {
 
+            this.addSound("gameOver", App.sound.gameOver);
+            this.emit("gameOver");
             var playerName = prompt("Game Over ! \nPlease enter your name");
             var score = this.user.score;
             this.pauseGame();
             this.view.off("start", this.start);
+
 
             $.ajax({
                 url: App+'scores',

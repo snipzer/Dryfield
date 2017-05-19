@@ -14,7 +14,7 @@ SoundEmitter.prototype.addSound = function (eventName, sound)
     this.sounds[eventName] = this.sounds[eventName] || [];
 
     // On lie la fonction au déclenchement de l'événement
-    this.events[eventName].push(sound)
+    this.sounds[eventName].push(sound)
 };
 
 
