@@ -111,6 +111,14 @@ a:focus {
     height: 70%;
 }
 
+p.error {
+    text-align: center;
+    color: #ff0000;
+    text-decoration: underline;
+    font-size: 25px;
+    margin: auto;
+}
+
 #stat {
     background-color: #00664A;
     color: #62FFD5;
@@ -172,7 +180,7 @@ a:focus {
     text-decoration: none;
 }
 
-#score,
+#score
 h3 {
     color: #62FFD5;
     text-align: center;
