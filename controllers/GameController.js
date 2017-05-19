@@ -104,36 +104,60 @@ GameController.prototype.startGame = function()
 
             this.addSound("gameOver", App.sound.gameOver);
             this.emit("gameOver");
-            var playerName = prompt("Game Over ! \nPlease enter your name");
             var score = this.user.score;
+
             this.pauseGame();
             this.view.off("start", this.start);
 
-
-            $.ajax({
-                url: App+'scores',
-                type: 'POST',
-                data: {name: playerName, score: score},
-                dataType: 'json',
-                success: function(json, status)
-                {
-                    window.location.href = "score.html";
-                },
-                error: function(result, status, error)
-                {
-                    console.error(error);
-                }
-            });
+            this.gameOver();
+            // var playerName = prompt("Game Over ! \nPlease enter your name");
+            // $.ajax({
+            //     url: App+'scores',
+            //     type: 'POST',
+            //     data: {name: playerName, score: score},
+            //     dataType: 'json',
+            //     success: function(json, status)
+            //     {
+            //         window.location.href = "score.html";
+            //     },
+            //     error: function(result, status, error)
+            //     {
+            //         console.error(error);
+            //     }
+            // });
         }
 
         // console.log("============================= Fin interval =============================");
     }).bind(this), 1000);
 };
 
-GameController.prototype.pauseGame = function() {
+GameController.prototype.pauseGame = function()
+{
 	if (!this.interval) return;
 
 	clearInterval(this.interval);
 	this.interval = null;
 };
 
+
+GameController.prototype.gameOver = function()
+{
+    console.log("should be hide");
+    $("main").children().hide();
+
+    var form = document.createElement("form");
+    var input = document.createElement("input");
+    var submit = document.createElement("input");
+
+
+    form.className = "container-tab gameOverForm";
+    input.type = "text";
+    submit.type = "submit";
+
+    form.appendChild(input);
+    form.appendChild(submit);
+
+   document.querySelector("main").appendChild(form);
+
+
+};
