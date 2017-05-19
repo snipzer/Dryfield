@@ -239,3 +239,34 @@ img.btn_close {
 *html .popup_block {
     position: absolute;
 }
+
+.container-fluid {
+    display: block;
+}
+
+#field0 {
+    position: relative;
+    display: inline-block;
+    width: 25%;
+    float: left;
+}
+
+#field0-maturation {
+    width: auto;
+}
+
+#field1 {
+    position: relative;
+    display: inline-block;
+    width: 25%;
+    float: none;
+
+}
+
+#field2 {
+    position: relative;
+    display: inline-block;
+    width: 25%;
+    float: right;
+
+}
