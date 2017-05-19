@@ -5,8 +5,9 @@ function ScoreController(view)
 }
 
 ScoreController.prototype.bindEvents = function() {
-    $.ajax({
-        url: 'http://10.1.108.8:3000/scores',
+    $.ajax(
+    {
+        url: App.url+'scores',
         type: 'GET',
         dataType: 'json',
         success: function(json, status)

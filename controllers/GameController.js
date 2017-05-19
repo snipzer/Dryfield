@@ -104,7 +104,7 @@ GameController.prototype.startGame = function()
             this.view.off("start", this.start);
 
             $.ajax({
-                url: 'http://10.1.108.8:3000/scores',
+                url: App+'scores',
                 type: 'POST',
                 data: {name: playerName, score: score},
                 dataType: 'json',
