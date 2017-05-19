@@ -63,7 +63,7 @@ Field.prototype.genHTML = function ()
 
 
     irrigateButton.id = this.id+"-irriguer";
-    irrigateButton.className = "irriguer";
+    irrigateButton.className = "irriguer btn btn-success";
     irrigateButton.innerText = "irriguer";
 
     waterLevel.id = this.id+"-water_level";
@@ -75,7 +75,7 @@ Field.prototype.genHTML = function ()
     maturation.setAttribute("value", this.maturation);
 
     harvestButton.id = this.id+"-recolter";
-    harvestButton.className = "recolter";
+    harvestButton.className = "recolter btn btn-success";
     harvestButton.innerText = "recolter";
 
 
