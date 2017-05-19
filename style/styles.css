@@ -89,7 +89,7 @@ a:focus {
     margin-right: auto;
     margin-top: 100px;
     width: 115px;
-    height: 195px;
+    height: 75px;
 }
 
 #oui {
@@ -101,14 +101,13 @@ a:focus {
 }
 
 .container-tab {
-    background-color: #404040;
+    background-color: #4C4122;
     border-radius: 50px;
-    width: 30%;
+    width: 50%;
     padding-top: 40px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
-    height: 70%;
 }
 
 p.error {
@@ -121,7 +120,7 @@ p.error {
 }
 
 #stat {
-    background-color: #505050;
+    background-color: #3B321A;
     color: #fff;
     font-weight: bold;
     text-align: center;
@@ -132,8 +131,8 @@ p.error {
 }
 
 #stat2 {
-    background-color: #505050;
-    color: #5cb85c;
+    background-color: #3B321A;
+    color: #fff;
     font-weight: bold;
     text-align: center;
     margin-left: auto;
@@ -148,9 +147,8 @@ p.error {
 }
 
 #stat tr td {
-    padding: 5px;
+    padding: 20px;
     border: 1px solid black;
-    border-radius: 10px 10px 0 0;
     text-decoration: none;
     font-weight: bold;
 }
@@ -158,14 +156,13 @@ p.error {
 #stat2 tr td {
     padding: 5px;
     border: 1px solid black;
-    border-radius: 10px 10px 0 0;
     text-decoration: none;
     font-weight: bold;
 }
 
 #scoretab {
     background-color: #404040;
-    color: #5cb85c;
+    color: #fff;
     font-weight: bold;
     text-align: center;
     margin-left: auto;
@@ -183,7 +180,7 @@ p.error {
 
 #score
 h3 {
-    color: #5cb85c;
+    color: #fff;
     text-align: center;
     text-decoration: underline;
     margin-bottom: 50px;
@@ -216,9 +213,9 @@ h3 {
 .popup_block {
     display: none;
     /*--masqué par défaut--*/
-    background: #fff;
+    background: #4C4122;
     padding: 20px;
-    border: 20px solid #ddd;
+    border: 20px solid #3B321A;
     float: left;
     font-size: 1.2em;
     position: fixed;
@@ -297,6 +294,21 @@ img.btn_close {
 
 hr {
     color: #000;
+}
+
+#field0-water_level {
+    color: #fff;
+    border-color: #fff;
+}
+
+#field1-water_level {
+    color: #fff;
+    border-color: #fff;
+}
+
+#field2-water_level {
+    color: #fff;
+    border-color: #fff;
 }
 
 
