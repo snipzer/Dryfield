@@ -20,8 +20,7 @@ Field.prototype.setWaterLevel = function (number)
     this.waterLevel = Math.round(number);
     if(number < 0)
         this.waterLevel = 0;
-
-    console.log(this.id+" waterlevel = "+this.waterLevel);
+    
     this.emit("update-water", {id: this.id, waterLevel: this.waterLevel});
 };
 
