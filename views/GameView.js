@@ -32,6 +32,7 @@ GameView.prototype.init = function ()
 
         $(".popup_block").css("display", "none");
         $("#fade").css("display", "none");
+        buyForm.firstElementChild.value = 1;
     }).bind(this);
 
     startButton.onclick = (function ()
