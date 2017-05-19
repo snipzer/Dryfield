@@ -30,7 +30,7 @@ window.onload = function() {
 
             str += "</table>";
 
-            $(".container-tab").html(str);
+            $("#score-container").html(str);
         },
         error: function(result, status, error)
         {
