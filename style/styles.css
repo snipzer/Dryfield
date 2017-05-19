@@ -117,6 +117,7 @@ p.error {
     text-decoration: underline;
     font-size: 25px;
     margin: auto;
+    margin-bottom: 35px;
 }
 
 #stat {
@@ -191,6 +192,7 @@ h3 {
 .copyright {
     margin-top: 450px;
     text-align: center;
+    color: #fff;
 }
 
 .br {
@@ -285,5 +287,17 @@ img.btn_close {
 
 #field2-maturation {
     width: 100px;
+}
+
+#show-score {
+    margin: auto;
+    text-align: center;
+    margin-left: 50%;
+}
+
+button {
+    border-radius: 50px;
+    border-color: #008000;
+    color: #00664A;
 }
 
