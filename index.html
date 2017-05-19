@@ -17,25 +17,27 @@
 </head>
 
 <body>
-    <div class="navbar navbar-inverse">
+    <header>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand">DryField</a>
+                    <ul class="nav navbar-nav">
+                        <li><a href="#jeu">Jouer</a></li>
+                        <li><a href="#br">Scores</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="jeu">
         <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand">DryField</a>
-                <ul class="nav navbar-nav">
-                    <li><a href="#jeu">Jouer</a></li>
-                    <li><a href="#score">Scores</a></li>
-                </ul>
+            <div>
+                <button id="start">GO</button>
             </div>
         </div>
     </div>
-
-    <div class="container">
-        <div>
-            <button id="start">GO</button>
-        </div>
-    </div>
-
-    <div>
+    <div class="container-tab">
         <table id="stat">
             <tr>
                 <td>Récoltes</td>
@@ -46,24 +48,72 @@
                 <td id="arg">0000 $</td>
             </tr>
         </table>
-    </div>
-
-    <div class="container" id="fields">
-    </div>
-    <div id="boutton">
-        <a href="#" data-width="500" data-rel="pop" class="poplight"><button id="acheter">Acheter de l'eau</button></a>
-    </div>
-    <div id="pop" class="popup_block">
-        <form id="buy">
-            <input type="number">
-            <button id="buy-eau">Acheter</button>
-        </form>
-    </div>
 
 
+        <div class="container" id="fields">
+        </div>
+
+
+        <div id="boutton">
+            <a href="#" data-width="700" data-height="200" data-rel="pop" class="poplight"><button id="acheter">Acheter de l'eau</button></a>
+        </div>
+        <div id="pop" class="popup_block">
+            <table id="stat2">
+                <tr>
+                    <td>Récoltes</td>
+                    <td id="rec-modal">0000</td>
+                    <td>Litres</td>
+                    <td id="lit-modal">0000</td>
+                    <td>Argent</td>
+                    <td id="arg-modal">0000 $</td>
+                </tr>
+            </table>
+            <form id="buy">
+                <input type="number" min="1" max="150" placeholder="1">
+                <button id="buy-eau">Acheter</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="br" id="br">
+    </div>
+
+    <div id="score">
+        <div class="container-tab">
+            <h3>Scores :</h3>
+            <table id="scoretab">
+                <tr>
+                    <td>Joueur</td>
+                    <td>Nb de récoltes</td>
+                </tr>
+                <tr>
+                    <td>Cell1</td>
+                    <td>Cell1bis</td>
+                </tr>
+                <tr>
+                    <td>Cell2</td>
+                    <td>Cell2bis</td>
+                </tr>
+                <tr>
+                    <td>Cell3</td>
+                    <td>Cell3bis</td>
+                </tr>
+                <tr>
+                    <td>Cell4</td>
+                    <td>Cell4bis</td>
+                </tr>
+            </table>
+            <br/>
+        </div>
+    </div>
+
+    <div class="copyright">
+        <p>Copyright Dryfield.co</p>
+    </div>
 
 </body>
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="tools/Pops.js"></script>
 
 </html>

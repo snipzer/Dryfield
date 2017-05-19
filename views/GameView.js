@@ -14,6 +14,23 @@ GameView.prototype.init = function ()
     var irrigateButtons = document.querySelectorAll(".irriguer");
     var harvestButtons = document.querySelectorAll(".recolter");
     var startButton = document.querySelector("#start");
+    var buyForm = document.querySelector("#buy");
+    var buyButton = document.querySelector("#acheter");
+
+
+
+
+    buyButton.onclick = (function ()
+    {
+        this.emit("stop");
+    }).bind(this);
+
+    buyForm.onsubmit = (function (e)
+    {
+        e.preventDefault();
+
+        this.emit("buy", { quantity: buyForm.firstElementChild.value });
+    }).bind(this);
 
     startButton.onclick = (function ()
     {
@@ -26,9 +43,8 @@ GameView.prototype.init = function ()
         {
             e.preventDefault();
 
-            this.emit("irrigate", {
-                field: button.id
-            });
+            console.log(button.id+' send irrigate !');
+            this.emit("irrigate", { field: button.id });
         }).bind(this);
     }).bind(this));
 
@@ -46,27 +62,32 @@ GameView.prototype.init = function ()
     {
         field.on("update-water", function (data)
         {
-            document.querySelector('#'+data.id+"-water_level").innerText = data.waterLevel;
+            document.querySelector('#'+data.id+"-water_level").innerText = Math.round(data.waterLevel);
         });
 
         field.on("update-maturation", function (data)
         {
             document.querySelector("#"+data.id+"-maturation").innerText = data.maturation;
+            document.querySelector("#"+data.id+"-maturation").setAttribute("value", data.maturation);
         });
     });
 
     this.user.on("update-score", function (data)
     {
-        document.querySelector('#recolte').innerText = data.score;
+        document.querySelector('#rec').innerText = data.score;
+        document.querySelector('#rec-modal').innerText = data.score;
     });
 
     this.user.on("update-global-water", function (data)
     {
-        document.querySelector("#water").innerText = data.waterLevel;
+        document.querySelector("#lit").innerText = data.waterLevel;
+        document.querySelector("#lit-modal").innerText = data.waterLevel;
     });
 
     this.user.on("update-money", function (data)
     {
-        document.querySelector('#money').innerText = data.money;
+        document.querySelector('#arg').innerText = data.money;
+        document.querySelector('#arg-modal').innerText = data.money;
+        document.querySelector('#buy').firstElementChild.max = data.money;
     });
 };

@@ -2,8 +2,6 @@ function Field(id){
     EventEmitter.call(this);
     this.id = id;
     this.consomation = 1.0;
-    this.waterLevel = 3;
-    this.maturation = 0;
     this.harvestabled = false;
     this.genHTML();
 }
@@ -11,18 +9,25 @@ function Field(id){
 Field.prototype = Object.create(EventEmitter.prototype);
 Field.prototype.constructor = Field;
 
+Field.prototype.build = function ()
+{
+    this.setWaterLevel(50);
+    this.setMaturation(0);
+};
+
 Field.prototype.setWaterLevel = function (number)
 {
-    if(number < 0 || this.harvestabled)
-        return;
-    this.waterLevel = number;
+    this.waterLevel = Math.round(number);
+    if(number < 0)
+        this.waterLevel = 0;
 
     this.emit("update-water", {id: this.id, waterLevel: this.waterLevel});
+    console.log(this.id+" waterLevel = "+this.waterLevel)
 };
 
 Field.prototype.setConsomation = function (number)
 {
-    if((number >= 3 && number <= 1) || this.harvestabled)
+    if((number > 2 && number <= 1) || this.harvestabled)
         return;
     this.consomation = number;
 };
@@ -48,7 +53,7 @@ Field.prototype.genHTML = function ()
     var smallBox = document.createElement("div");
     var irrigateButton = document.createElement("button");
     var waterLevel = document.createElement("p");
-    var maturation = document.createElement("p");
+    var maturation = document.createElement("progress");
     var harvestButton = document.createElement("button");
 
     bigBox.id = "fields";
@@ -60,17 +65,24 @@ Field.prototype.genHTML = function ()
     irrigateButton.id = this.id+"-irriguer";
     irrigateButton.className = "irriguer";
     irrigateButton.innerText = "irriguer";
+
     waterLevel.id = this.id+"-water_level";
     waterLevel.innerText = "OL";
+
     maturation.id = this.id+"-maturation";
-    maturation.innerText = 0;
+    maturation.innerText = "10%";
+    maturation.max = 100;
+    maturation.setAttribute("value", this.maturation);
+
     harvestButton.id = this.id+"-recolter";
     harvestButton.className = "recolter";
     harvestButton.innerText = "recolter";
 
+
     smallBox.appendChild(irrigateButton);
     smallBox.appendChild(waterLevel);
     smallBox.appendChild(maturation);
+    smallBox.appendChild(document.createElement("br"));
     smallBox.appendChild(harvestButton);
 
     bigBox.appendChild(smallBox);
