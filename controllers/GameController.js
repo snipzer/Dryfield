@@ -109,6 +109,7 @@ GameController.prototype.startGame = function()
             this.pauseGame();
             this.view.off("start", this.start);
 
+
             this.gameOver();
             // var playerName = prompt("Game Over ! \nPlease enter your name");
             // $.ajax({
