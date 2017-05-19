@@ -27,7 +27,7 @@ window.onload = function() {
         },
         error: function(result, status, error)
         {
-            var str = '<p style="color:red; font-weight: bold">Erreur lors du chargement des scores</p>';
+            var str = '<p id="error">Erreur lors du chargement des scores</p>';
             $("#score-container").html(str);
         }
     });
