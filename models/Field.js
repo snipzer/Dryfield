@@ -1,12 +1,12 @@
 function Field(id){
-    EventEmitter.call(this);
+    SoundEmitter.call(this);
     this.id = id;
     this.consomation = 1.0;
     this.harvestabled = false;
     this.genHTML();
 }
 
-Field.prototype = Object.create(EventEmitter.prototype);
+Field.prototype = Object.create(SoundEmitter.prototype);
 Field.prototype.constructor = Field;
 
 Field.prototype.build = function ()

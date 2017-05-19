@@ -1,12 +1,12 @@
 function GameView(fields, user)
 {
-    EventEmitter.call(this);
+    SoundEmitter.call(this);
     this.fields = fields;
     this.user = user;
     this.init();
 }
 
-GameView.prototype = Object.create(EventEmitter.prototype);
+GameView.prototype = Object.create(SoundEmitter.prototype);
 GameView.prototype.constructor = GameView;
 
 GameView.prototype.init = function ()

@@ -1,8 +1,8 @@
 function User(){
-    EventEmitter.call(this);
+    SoundEmitter.call(this);
 }
 
-User.prototype = Object.create(EventEmitter.prototype);
+User.prototype = Object.create(SoundEmitter.prototype);
 User.prototype.constructor = User;
 
 User.prototype.setScore = function (number)

@@ -40,11 +40,22 @@ SoundEmitter.prototype.emit = function(eventName, data)
 {
     if (!this.events[eventName] && !this.sounds[eventName]) return;
 
-    this.events[eventName].forEach(function(fn)
+    if(this.events[eventName])
     {
-        fn(data)
+        this.events[eventName].forEach(function(fn)
+        {
+            fn(data)
+        });
 
+    }
 
-    });
+    if(this.sounds[eventName])
+    {
+        this.sounds[eventName].forEach(function(sound)
+        {
+            var audio = new Audio(sound);
+            audio.play()
+        });
 
+    }
 };

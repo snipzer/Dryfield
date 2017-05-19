@@ -10,10 +10,10 @@ function EventEmitter() {
  */
 EventEmitter.prototype.on = function(eventName, fn) {
   // On vérifie le type des arguments
-  if (typeof fn !== 'function' || typeof eventName !== 'string') return
+  if (typeof fn !== 'function' || typeof eventName !== 'string') return;
 
   // On ajoute l'événement à l'objet
-  this.events[eventName] = this.events[eventName] || []
+  this.events[eventName] = this.events[eventName] || [];
   // On lie la fonction au déclenchement de l'événement
   this.events[eventName].push(fn)
 }
@@ -29,8 +29,8 @@ EventEmitter.prototype.off = function(eventName, fn) {
   for (var i = 0; i < this.events[eventName].length; i++) {
     // Si on trouve la fonction demandée, on la supprime.
     // Elle ne sera plus executée lorsque l'objet émettra l'événement
-    if (this.events[eventName][i] == fn) {
-      this.events[eventName].splice(i, 1)
+    if (this.events[eventName][i] === fn) {
+      this.events[eventName].splice(i, 1);
       break
     }
   }
