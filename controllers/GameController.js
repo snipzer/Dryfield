@@ -42,24 +42,21 @@ GameController.prototype.startGame = function() {
         console.log("Debut interval");
         this.fields.forEach(function (field)
         {
-            if(field.maturation === 100)
+            if(field.maturation !== 100)
             {
-                //dfdf
-            }
-            else if (field.waterLevel > 0)
-            {
-                // toute les secondes les fields perdent -1L
-                field.setWaterLevel(field.waterLevel - field.consomation);
-                // toute les secondes maturation de +5%
-                field.setMaturation(field.maturation + 5);
+                if (field.waterLevel > 0)
+                {
+                    // toute les secondes les fields perdent -1L
+                    field.setWaterLevel(field.waterLevel - field.consomation);
+                    // toute les secondes maturation de +5%
+                    field.setMaturation(field.maturation + 5);
+                }
             }
 
             if(field.waterLevel === 0)
             {
                 field.setMaturation(0);
             }
-
-
 
         }, this);
 

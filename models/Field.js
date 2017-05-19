@@ -53,7 +53,7 @@ Field.prototype.genHTML = function ()
     var smallBox = document.createElement("div");
     var irrigateButton = document.createElement("button");
     var waterLevel = document.createElement("p");
-    var maturation = document.createElement("p");
+    var maturation = document.createElement("progress");
     var harvestButton = document.createElement("button");
 
     bigBox.id = "fields";
@@ -65,17 +65,24 @@ Field.prototype.genHTML = function ()
     irrigateButton.id = this.id+"-irriguer";
     irrigateButton.className = "irriguer";
     irrigateButton.innerText = "irriguer";
+
     waterLevel.id = this.id+"-water_level";
     waterLevel.innerText = "OL";
+
     maturation.id = this.id+"-maturation";
-    maturation.innerText = 0;
+    maturation.innerText = "10%";
+    maturation.max = 100;
+    maturation.setAttribute("value", this.maturation);
+
     harvestButton.id = this.id+"-recolter";
     harvestButton.className = "recolter";
     harvestButton.innerText = "recolter";
 
+
     smallBox.appendChild(irrigateButton);
     smallBox.appendChild(waterLevel);
     smallBox.appendChild(maturation);
+    smallBox.appendChild(document.createElement("br"));
     smallBox.appendChild(harvestButton);
 
     bigBox.appendChild(smallBox);

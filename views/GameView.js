@@ -68,6 +68,7 @@ GameView.prototype.init = function ()
         field.on("update-maturation", function (data)
         {
             document.querySelector("#"+data.id+"-maturation").innerText = data.maturation;
+            document.querySelector("#"+data.id+"-maturation").setAttribute("value", data.maturation);
         });
     });
 
