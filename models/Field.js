@@ -22,7 +22,6 @@ Field.prototype.setWaterLevel = function (number)
         this.waterLevel = 0;
 
     this.emit("update-water", {id: this.id, waterLevel: this.waterLevel});
-    console.log(this.id+" waterLevel = "+this.waterLevel)
 };
 
 Field.prototype.setConsomation = function (number)
