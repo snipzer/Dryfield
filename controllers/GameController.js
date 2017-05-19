@@ -110,7 +110,7 @@ GameController.prototype.startGame = function()
                 dataType: 'json',
                 success: function(json, status)
                 {
-                    location.reload();
+                    window.location.href = "score.html";
                 },
                 error: function(result, status, error)
                 {
