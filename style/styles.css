@@ -84,11 +84,12 @@ a:focus {
 }
 
 #boutton {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 100px;
-    margin-right: 0px;
     width: 115px;
     height: 195px;
-    margin-left: 610px;
 }
 
 #oui {
@@ -247,7 +248,7 @@ img.btn_close {
 #field0 {
     position: relative;
     display: inline-block;
-    width: 25%;
+    width: 27%;
     float: left;
 }
 
@@ -258,7 +259,7 @@ img.btn_close {
 #field1 {
     position: relative;
     display: inline-block;
-    width: 25%;
+    width: 27%;
     float: none;
 }
 
@@ -270,10 +271,11 @@ img.btn_close {
 #field2 {
     position: relative;
     display: inline-block;
-    width: 8%;
+    width: 10%;
     float: right;
 }
 
 #field2-maturation {
     width: 100px;
 }
+
